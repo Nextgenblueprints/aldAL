@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <!-- Custom Styles -->
   <link rel="stylesheet" href="aldali.css" />
+  <link rel="stylesheet" href="scrolly.css" />
 </head>
 <body>
   <!-- Navbar -->
@@ -38,173 +39,150 @@
     <div class="nav-toggle" id="hamburger"><span></span></div>
   </nav>
 
-  <!-- Hero Carousel -->
-  <section class="hero" id="top">
-    <div class="swiper-container hero-swiper swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <video class="hero-video" autoplay muted loop playsinline preload="auto">
-            <source src="assets/hero/hero-slide-01.mp4" type="video/mp4" />
-          </video>
-          <div class="hero-overlay">
-            <h1 class="hero-title">Empowering Kuwait's Economic Growth</h1>
-            <p class="hero-description">Supporting the Nation's Key Sectors with Innovative Services in Energy, Construction, and Infrastructure.</p>
-            <div class="hero-actions">
-              <a href="#contact" class="btn-primary">Contact Now</a>
-              <a href="#services" class="btn-secondary">Learn More</a>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <video class="hero-video" autoplay muted loop playsinline preload="metadata">
-            <source src="assets/hero/hero-slide-02-sustainable.mp4" type="video/mp4" />
-          </video>
-          <div class="hero-overlay">
-            <h1 class="hero-title">Sustainable Business Solutions for a Greener Tomorrow</h1>
-            <p class="hero-description">Leading the Way in Circular Carbon Economy, Renewable Energy, and Environmental Management.</p>
-            <div class="hero-actions">
-              <a href="#contact" class="btn-primary">Contact Now</a>
-              <a href="#services" class="btn-secondary">Learn More</a>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <video class="hero-video" autoplay muted loop playsinline preload="metadata">
-            <source src="assets/hero/hero-slide-03-offshore-marine.mp4" type="video/mp4" />
-          </video>
-          <div class="hero-overlay">
-            <h1 class="hero-title">Partnering for Offshore & Marine Excellence</h1>
-            <p class="hero-description">Providing High-Quality Marine Support, Vessel Services, and HNS Response for Safer Seas.</p>
-            <div class="hero-actions">
-              <a href="#contact" class="btn-primary">Contact Now</a>
-              <a href="#services" class="btn-secondary">Learn More</a>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <video class="hero-video" autoplay muted loop playsinline preload="metadata">
-            <source src="assets/hero/1000059973.mp4" type="video/mp4" />
-          </video>
-          <div class="hero-overlay">
-            <h1 class="hero-title">Integrated Upstream Oil Field Services</h1>
-            <p class="hero-description">Providing Rig Services, Data Automation, and Sustainable Drilling Solutions.</p>
-            <div class="hero-actions">
-              <a href="#contact" class="btn-primary">Contact Now</a>
-              <a href="#services" class="btn-secondary">Learn More</a>
-            </div>
-          </div>
+  <!-- Hero Scrollytelling -->
+  <section class="hero-scrolly" id="top">
+    <!-- Sticky Media Background -->
+    <div class="hero-media-container">
+      <video class="hero-bg-video" data-index="0" autoplay muted loop playsinline preload="auto" style="opacity: 1;">
+        <source src="assets/hero/hero-slide-01.mp4" type="video/mp4" />
+      </video>
+      <video class="hero-bg-video" data-index="1" autoplay muted loop playsinline preload="metadata">
+        <source src="assets/hero/hero-slide-02-sustainable.mp4" type="video/mp4" />
+      </video>
+      <video class="hero-bg-video" data-index="2" autoplay muted loop playsinline preload="metadata">
+        <source src="assets/hero/hero-slide-03-offshore-marine.mp4" type="video/mp4" />
+      </video>
+      <video class="hero-bg-video" data-index="3" autoplay muted loop playsinline preload="metadata">
+        <source src="assets/hero/1000059973.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay-dark"></div>
+    </div>
+
+    <!-- Scrolling Text Blocks -->
+    <div class="hero-text-container">
+      <div class="hero-text-block">
+        <div class="hero-text-inner">
+          <h1 class="hero-title">Empowering Kuwait's Economic Growth</h1>
+          <p class="hero-description">Supporting the Nation's Key Sectors with Innovative Services in Energy, Construction, and Infrastructure.</p>
         </div>
       </div>
-      <!-- Navigation Dots -->
-      <div class="swiper-pagination"></div>
+      <div class="hero-text-block">
+        <div class="hero-text-inner">
+          <h1 class="hero-title">Sustainable Business Solutions for a Greener Tomorrow</h1>
+          <p class="hero-description">Leading the Way in Circular Carbon Economy, Renewable Energy, and Environmental Management.</p>
+        </div>
+      </div>
+      <div class="hero-text-block">
+        <div class="hero-text-inner">
+          <h1 class="hero-title">Partnering for Offshore & Marine Excellence</h1>
+          <p class="hero-description">Providing High-Quality Marine Support, Vessel Services, and HNS Response for Safer Seas.</p>
+        </div>
+      </div>
+      <div class="hero-text-block">
+        <div class="hero-text-inner">
+          <h1 class="hero-title">Integrated Upstream Oil Field Services</h1>
+          <p class="hero-description">Providing Rig Services, Data Automation, and Sustainable Drilling Solutions.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- About Us -->
-  <section class="about" id="about-us">
+  <!-- About Us Scrollytelling -->
+  <section class="about-scrolly" id="about-us">
     <div class="container">
-      <h2>About Us</h2>
-      <p>Founded in 2003 as a private Company offering Heavy Equipment and Machinery support services to the Industries in Kuwait, DIC has grown into a multi‑diversified contractor across Integrated Energy & Infrastructure sectors.</p>
-      <p>With <strong>800+</strong> human assets and <strong>1000+</strong> equipment assets, we are committed to becoming the market leader and preferred partner for our clients.</p>
-      <a href="our-services.html" class="btn-primary">Our Services →</a>
+      <div class="about-text-reveal">
+        <h2 class="reveal-text">Founded in 2003 as a private Company offering Heavy Equipment and Machinery support services to the Industries in Kuwait, DIC has grown into a multi‑diversified contractor across Integrated Energy & Infrastructure sectors.</h2>
+      </div>
+      <div class="about-stats">
+        <div class="stat-box" data-speed="1.1">
+          <h3>800+</h3>
+          <p>Human Assets</p>
+        </div>
+        <div class="stat-box" data-speed="1.3">
+          <h3>1000+</h3>
+          <p>Equipment Assets</p>
+        </div>
+      </div>
+      <a href="our-services.html" class="btn-primary" style="margin-top: 40px; display: inline-block;">Our Services →</a>
     </div>
   </section>
 
-  <!-- Services (SRMG Latest News style) -->
-  <section class="services" id="services">
-    <div class="container">
-      <h2>Business Domains</h2>
-      <p>Marching towards Sustainable Excellence through Adaptive Business Strategy</p>
-      <div class="services-grid">
-        <!-- Service Card Template – repeat for each domain -->
-        <article class="service-card">
-          <div class="service-media">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/services/svc-construction.mp4" type="video/mp4" />
-            </video>
+  <!-- Services (SRMG Latest News Horizontal Scroll) -->
+  <section class="services-scrolly" id="services">
+    <div class="services-pin-wrap">
+      <div class="services-header">
+        <h2>Business Domains</h2>
+        <p>Marching towards Sustainable Excellence through Adaptive Business Strategy</p>
+      </div>
+      <div class="services-horizontal-container">
+        <!-- Service Cards -->
+        <article class="h-service-card">
+          <div class="h-service-media">
+            <video autoplay muted loop playsinline preload="metadata"><source src="assets/services/svc-construction.mp4" type="video/mp4" /></video>
           </div>
-          <div class="service-body">
-            <span class="service-meta"><strong>Domain 01</strong> – Construction</span>
+          <div class="h-service-body">
+            <span class="service-meta">Domain 01 – Construction</span>
             <h3>Construction & Maintenance</h3>
-            <p>DIC prefers to be a partner of choice for Sustainable construction, accelerating the transformation of living environments, infrastructure and mobility.</p>
             <a href="construction-maintenance.html" class="service-link">Explore →</a>
           </div>
         </article>
-        <article class="service-card">
-          <div class="service-media">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/services/svc-equipment.mp4" type="video/mp4" />
-            </video>
+        <article class="h-service-card">
+          <div class="h-service-media">
+            <video autoplay muted loop playsinline preload="metadata"><source src="assets/services/svc-equipment.mp4" type="video/mp4" /></video>
           </div>
-          <div class="service-body">
-            <span class="service-meta"><strong>Domain 02</strong> – Logistics</span>
+          <div class="h-service-body">
+            <span class="service-meta">Domain 02 – Logistics</span>
             <h3>Equipment & Machinery</h3>
-            <p>Clients in Kuwait choose DIC as their partner for Logistics, equipment and machinery services to achieve operational excellence.</p>
             <a href="equipment-machinery.html" class="service-link">Explore →</a>
           </div>
         </article>
-        <article class="service-card">
-          <div class="service-media">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/services/svc-upstream.mp4" type="video/mp4" />
-            </video>
+        <article class="h-service-card">
+          <div class="h-service-media">
+            <video autoplay muted loop playsinline preload="metadata"><source src="assets/services/svc-upstream.mp4" type="video/mp4" /></video>
           </div>
-          <div class="service-body">
-            <span class="service-meta"><strong>Domain 03</strong> – Oil & Gas</span>
+          <div class="h-service-body">
+            <span class="service-meta">Domain 03 – Oil & Gas</span>
             <h3>Upstream Oil Field</h3>
-            <p>DIC is expanding its Upstream Oil Field services to offer Integrated drilling services, leveraging its position as a trusted Kuwaiti contractor.</p>
             <a href="upstream-oil-field-services.html" class="service-link">Explore →</a>
           </div>
         </article>
-        <article class="service-card">
-          <div class="service-media">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/services/svc-marine.mp4" type="video/mp4" />
-            </video>
+        <article class="h-service-card">
+          <div class="h-service-media">
+            <video autoplay muted loop playsinline preload="metadata"><source src="assets/services/svc-marine.mp4" type="video/mp4" /></video>
           </div>
-          <div class="service-body">
-            <span class="service-meta"><strong>Domain 04</strong> – Marine</span>
+          <div class="h-service-body">
+            <span class="service-meta">Domain 04 – Marine</span>
             <h3>Offshore & Marine</h3>
-            <p>With high‑profile experienced partners, DIC offers Marine services and equipment ensuring even the biggest offshore jobs are executed safely.</p>
             <a href="offshore-marine-services.html" class="service-link">Explore →</a>
           </div>
         </article>
-        <article class="service-card">
-          <div class="service-media">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/services/svc-partnership.mp4" type="video/mp4" />
-            </video>
+        <article class="h-service-card">
+          <div class="h-service-media">
+            <video autoplay muted loop playsinline preload="metadata"><source src="assets/services/svc-partnership.mp4" type="video/mp4" /></video>
           </div>
-          <div class="service-body">
-            <span class="service-meta"><strong>Domain 05</strong> – Business</span>
+          <div class="h-service-body">
+            <span class="service-meta">Domain 05 – Business</span>
             <h3>Partnership Representation</h3>
-            <p>DIC partners with international organisations, providing business development support, marketing expertise and growth strategies.</p>
             <a href="partnership-representation.html" class="service-link">Explore →</a>
           </div>
         </article>
-        <article class="service-card">
-          <div class="service-media">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/services/svc-medical.mp4" type="video/mp4" />
-            </video>
+        <article class="h-service-card">
+          <div class="h-service-media">
+            <video autoplay muted loop playsinline preload="metadata"><source src="assets/services/svc-medical.mp4" type="video/mp4" /></video>
           </div>
-          <div class="service-body">
-            <span class="service-meta"><strong>Domain 06</strong> – Healthcare</span>
+          <div class="h-service-body">
+            <span class="service-meta">Domain 06 – Healthcare</span>
             <h3>Medical & Health</h3>
-            <p>With professional background in Healthcare, DIC provides holistic services that fit the complexities of an ever‑changing environment.</p>
             <a href="medical-health-services.html" class="service-link">Explore →</a>
           </div>
         </article>
-        <article class="service-card">
-          <div class="service-media">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/services/svc-sustainability.mp4" type="video/mp4" />
-            </video>
+        <article class="h-service-card">
+          <div class="h-service-media">
+            <video autoplay muted loop playsinline preload="metadata"><source src="assets/services/svc-sustainability.mp4" type="video/mp4" /></video>
           </div>
-          <div class="service-body">
-            <span class="service-meta"><strong>Domain 07</strong> – Sustainability</span>
+          <div class="h-service-body">
+            <span class="service-meta">Domain 07 – Sustainability</span>
             <h3>Sustainability Services</h3>
-            <p>Circular carbon economy, renewable energy, and environmental management for pragmatic sustainable growth.</p>
             <a href="sustainability-services.html" class="service-link">Explore →</a>
           </div>
         </article>
@@ -212,21 +190,21 @@
     </div>
   </section>
 
-  <!-- Partners Carousel -->
-  <section class="partners" id="partners">
+  <!-- Partners Reveal Sequence -->
+  <section class="partners-scrolly" id="partners">
     <div class="container">
-      <h2>Our Clients & Partners</h2>
-      <div class="partners-slider" id="partnersSlider">
-        <div class="partner-item"><img src="assets/partners/KNPC.PNG" alt="KNPC" loading="lazy" /></div>
-        <div class="partner-item"><img src="assets/partners/koc1.png" alt="Kuwait Oil Company" loading="lazy" /></div>
-        <div class="partner-item"><img src="assets/partners/ministrymain.png" alt="Ministry of Electricity & Water" loading="lazy" /></div>
-        <div class="partner-item"><img src="assets/partners/kharafinational.png" alt="Kharafi National" loading="lazy" /></div>
-        <div class="partner-item"><img src="assets/partners/LIPIC.PNG" alt="KIPIC" loading="lazy" /></div>
-        <div class="partner-item"><img src="assets/partners/CHEVRON.PNG" alt="Chevron KGOC" loading="lazy" /></div>
-        <div class="partner-item"><img src="assets/partners/samsungc.png" alt="Samsung" loading="lazy" /></div>
-        <div class="partner-item"><img src="assets/partners/sxhlumberger.png" alt="Schlumberger" loading="lazy" /></div>
-        <div class="partner-item"><img src="assets/partners/larsenandtourbo.png" alt="Larsen & Toubro" loading="lazy" /></div>
-        <div class="partner-item"><img src="assets/partners/hyndaiengiand.png" alt="Hyundai" loading="lazy" /></div>
+      <h2 class="partners-title-reveal">Our Clients & Partners</h2>
+      <div class="partners-grid-reveal">
+        <div class="partner-item-reveal"><img src="assets/partners/KNPC.PNG" alt="KNPC" loading="lazy" /></div>
+        <div class="partner-item-reveal"><img src="assets/partners/koc1.png" alt="Kuwait Oil Company" loading="lazy" /></div>
+        <div class="partner-item-reveal"><img src="assets/partners/ministrymain.png" alt="Ministry of Electricity & Water" loading="lazy" /></div>
+        <div class="partner-item-reveal"><img src="assets/partners/kharafinational.png" alt="Kharafi National" loading="lazy" /></div>
+        <div class="partner-item-reveal"><img src="assets/partners/LIPIC.PNG" alt="KIPIC" loading="lazy" /></div>
+        <div class="partner-item-reveal"><img src="assets/partners/CHEVRON.PNG" alt="Chevron KGOC" loading="lazy" /></div>
+        <div class="partner-item-reveal"><img src="assets/partners/samsungc.png" alt="Samsung" loading="lazy" /></div>
+        <div class="partner-item-reveal"><img src="assets/partners/sxhlumberger.png" alt="Schlumberger" loading="lazy" /></div>
+        <div class="partner-item-reveal"><img src="assets/partners/larsenandtourbo.png" alt="Larsen & Toubro" loading="lazy" /></div>
+        <div class="partner-item-reveal"><img src="assets/partners/hyndaiengiand.png" alt="Hyundai" loading="lazy" /></div>
       </div>
     </div>
   </section>
@@ -306,8 +284,10 @@
     </div>
   </footer>
 
-  <!-- Swiper JS -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <!-- GSAP & Lenis -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
   <!-- Custom Script -->
   <script src="aldali.js"></script>
 </body>

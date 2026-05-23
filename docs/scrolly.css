@@ -1,0 +1,206 @@
+/* ============================================================
+   SCROLLYTELLING CSS
+   ============================================================ */
+body {
+  /* lenis needs this */
+  overflow-x: hidden;
+}
+
+/* --- HERO --- */
+.hero-scrolly {
+  position: relative;
+  width: 100%;
+  background: #000;
+}
+
+.hero-media-container {
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+}
+
+.hero-overlay-dark {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 1;
+}
+
+.hero-text-container {
+  position: relative;
+  z-index: 2;
+  margin-top: -100vh; /* Start at the top of the sticky media */
+}
+
+.hero-text-block {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5%;
+}
+
+.hero-text-inner {
+  text-align: center;
+  max-width: 800px;
+  /* initial state for GSAP */
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.hero-title {
+  font-size: clamp(40px, 6vw, 80px);
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.hero-description {
+  font-size: 20px;
+  color: rgba(255,255,255,0.8);
+}
+
+/* --- ABOUT US --- */
+.about-scrolly {
+  padding: 150px 0;
+  background: #0a0a0a;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.about-text-reveal {
+  max-width: 1000px;
+  margin: 0 auto 80px;
+}
+
+.reveal-text {
+  font-size: clamp(32px, 5vw, 60px);
+  line-height: 1.2;
+  /* gradient trick for reveal */
+  background: linear-gradient(to right, #fff 50%, rgba(255,255,255,0.2) 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-stats {
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+}
+
+.stat-box h3 {
+  font-size: 60px;
+  color: var(--gold);
+}
+.stat-box p {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* --- SERVICES (HORIZONTAL SCROLL) --- */
+.services-scrolly {
+  background: #111;
+  color: #fff;
+  overflow: hidden;
+}
+
+.services-pin-wrap {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+}
+
+.services-header {
+  min-width: 40vw;
+  padding: 0 5vw;
+}
+
+.services-header h2 {
+  font-size: clamp(40px, 6vw, 72px);
+  margin-bottom: 20px;
+}
+
+.services-horizontal-container {
+  display: flex;
+  gap: 40px;
+  padding-right: 5vw;
+}
+
+.h-service-card {
+  width: 400px;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.h-service-media {
+  height: 250px;
+}
+.h-service-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.h-service-body {
+  padding: 30px;
+}
+
+.h-service-body h3 {
+  font-size: 24px;
+  margin: 10px 0 20px;
+}
+
+/* --- PARTNERS --- */
+.partners-scrolly {
+  padding: 150px 0;
+  background: #000;
+}
+
+.partners-title-reveal {
+  text-align: center;
+  font-size: clamp(40px, 6vw, 72px);
+  margin-bottom: 80px;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.partners-grid-reveal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.partner-item-reveal {
+  width: 180px;
+  opacity: 0;
+  transform: translateY(30px);
+}
+.partner-item-reveal img {
+  width: 100%;
+  filter: grayscale(100%) brightness(200%);
+  transition: filter 0.3s;
+}
+.partner-item-reveal img:hover {
+  filter: grayscale(0%) brightness(100%);
+}
