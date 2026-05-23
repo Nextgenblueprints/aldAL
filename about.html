@@ -24,6 +24,17 @@
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     /* Responsive adjustment */
     @media (max-width: 768px) { .tabs { flex-direction: column; align-items: center; } }
+    /* Layout */
+    body { font-family: 'Inter', sans-serif; background: #121212; color: #e0e0e0; margin: 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 1rem; }
+    .navbar { display: flex; justify-content: space-between; align-items: center; background: #3d9cd2; padding: 0.5rem 1rem; }
+    .nav-logo a { color: #fff; font-weight: 600; font-size: 1.5rem; text-decoration: none; }
+    .nav-links { display: flex; gap: 1rem; list-style: none; margin: 0; }
+    .nav-links a { color: #fff; text-decoration: none; }
+    .footer { background: #2c2c2c; padding: 2rem 0; color: #fff; }
+    .footer .footer-cols { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .footer-col h3 { margin-top: 0; }
+    .footer a { color: #fff; text-decoration: underline; }
   </style>
 </head>
 <body class="page-scheme-dark">
@@ -33,7 +44,7 @@
     <ul class="nav-links">
       <li><a href="#about-us">About Us</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#partners">Partners</a></li>
+      <li><a href="#partners">Partners</a></a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-toggle" id="hamburger"><span></span></div>
@@ -150,10 +161,10 @@
         <div class="footer-col">
           <h3>Get in Touch</h3>
           <address>
-            1st Floor, Office #8 &amp; 9<br/>
-            Ahmadi Corner Complex<br/>
-            P.O. Box: 3268, Safat 13033, Kuwait<br/>
-            <a href="tel:+96523984890">+965 23984890</a><br/>
+            1st Floor, Office #8 &amp; 9<br />
+            Ahmadi Corner Complex<br />
+            P.O. Box: 3268, Safat 13033, Kuwait<br />
+            <a href="tel:+96523984890">+965 23984890</a><br />
             <a href="mailto:info@aldali-int.com">info@aldali-int.com</a>
           </address>
         </div>
