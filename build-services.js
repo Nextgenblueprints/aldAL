@@ -1,9 +1,64 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const services = [
+  {
+    file: 'construction-maintenance.html',
+    video: 'assets/services/svc-construction.mp4',
+    heading: 'Construction & Maintenance',
+    description: "AL DALI DIC provides comprehensive construction and maintenance services for industrial facilities, oil & gas infrastructure, and civil projects across Kuwait.",
+    capabilities: ['Project Management', 'Civil Works', 'Mechanical Installation', 'Electrical Works', 'Piping & Fabrication', 'Facility Maintenance']
+  },
+  {
+    file: 'equipment-machinery.html',
+    video: 'assets/services/svc-equipment.mp4',
+    heading: 'Equipment & Machinery',
+    description: "We supply, lease, and maintain a diverse fleet of heavy equipment and specialized machinery for construction, oil & gas, and industrial operations.",
+    capabilities: ['Heavy Equipment Supply', 'Crane Operations', 'Fleet Management', 'Equipment Maintenance', 'Specialized Tools', 'Transport & Logistics']
+  },
+  {
+    file: 'upstream-oil-field-services.html',
+    video: 'assets/services/svc-upstream.mp4',
+    heading: 'Upstream Oil Field Services',
+    description: "Our upstream oil field services span drilling support, well services, and production optimization for major oil companies operating in Kuwait.",
+    capabilities: ['Drilling Support', 'Well Testing', 'Wireline Services', 'Mud Engineering', 'Cementing', 'Production Support']
+  },
+  {
+    file: 'offshore-marine-services.html',
+    video: 'assets/services/svc-marine.mp4',
+    heading: 'Offshore & Marine Services',
+    description: "AL DALI DIC delivers specialized offshore and marine services supporting Kuwait's offshore oil and gas operations.",
+    capabilities: ['Marine Logistics', 'Offshore Support Vessels', 'Subsea Services', 'Port Operations', 'Marine Engineering', 'Safety & Compliance']
+  },
+  {
+    file: 'medical-health-services.html',
+    video: 'assets/services/svc-medical.mp4',
+    heading: 'Medical & Health Services',
+    description: "We provide comprehensive medical and health services including occupational health programs, medical staffing, and healthcare facility management.",
+    capabilities: ['Occupational Health', 'Medical Staffing', 'Health Assessments', 'Emergency Response', 'Healthcare Management', 'HSE Consulting']
+  },
+  {
+    file: 'partnership-representation.html',
+    video: 'assets/services/svc-partnership.mp4',
+    heading: 'Partnership & Representation',
+    description: "AL DALI DIC represents and partners with leading international companies, providing local expertise and market access in Kuwait and the Gulf region.",
+    capabilities: ['Brand Representation', 'Market Entry Strategy', 'Local Partnerships', 'Joint Ventures', 'Business Development', 'Regulatory Compliance']
+  },
+  {
+    file: 'sustainability-service.html',
+    video: 'assets/services/svc-sustainability.mp4',
+    heading: 'Sustainability Services',
+    description: "Our sustainability services help organizations implement environmentally responsible practices while maintaining operational efficiency.",
+    capabilities: ['Environmental Impact Assessment', 'Waste Management', 'Energy Efficiency', 'Carbon Reduction', 'Compliance & Reporting', 'Sustainable Design']
+  }
+];
+
+const template = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Construction & Maintenance – AL DALI DIC</title>
+  <title>{{heading}} – AL DALI DIC</title>
   <link rel="stylesheet" href="aldali.css" />
   <link rel="stylesheet" href="scrolly.css" />
   <link rel="stylesheet" href="inner-page.css" />
@@ -80,12 +135,12 @@
   <!-- Hero Section -->
   <section class="inner-hero">
     <video class="inner-hero-bg" autoplay muted loop playsinline preload="metadata">
-      <source src="assets/services/svc-construction.mp4" type="video/mp4" />
+      <source src="{{video}}" type="video/mp4" />
     </video>
     <div class="inner-hero-overlay"></div>
     <div class="inner-hero-content">
       <p class="inner-hero-label">SERVICES</p>
-      <h1 class="inner-hero-heading">Construction & Maintenance</h1>
+      <h1 class="inner-hero-heading">{{heading}}</h1>
     </div>
   </section>
 
@@ -99,7 +154,7 @@
         </div>
         <div>
           <p class="section-text-large">
-            AL DALI DIC provides comprehensive construction and maintenance services for industrial facilities, oil & gas infrastructure, and civil projects across Kuwait.
+            {{description}}
           </p>
         </div>
       </div>
@@ -113,7 +168,7 @@
       <h2 class="section-heading" style="margin-bottom: 60px;">Key <strong>Capabilities</strong></h2>
       
       <div class="service-list">
-        <div class="service-list-item" style="cursor:default"><span class="service-name">Project Management</span><span class="service-arrow">→</span></div><div class="service-list-item" style="cursor:default"><span class="service-name">Civil Works</span><span class="service-arrow">→</span></div><div class="service-list-item" style="cursor:default"><span class="service-name">Mechanical Installation</span><span class="service-arrow">→</span></div><div class="service-list-item" style="cursor:default"><span class="service-name">Electrical Works</span><span class="service-arrow">→</span></div><div class="service-list-item" style="cursor:default"><span class="service-name">Piping & Fabrication</span><span class="service-arrow">→</span></div><div class="service-list-item" style="cursor:default"><span class="service-name">Facility Maintenance</span><span class="service-arrow">→</span></div>
+        {{capabilitiesList}}
       </div>
     </section>
   </div>
@@ -201,4 +256,22 @@
   </script>
 
 </body>
-</html>
+</html>`;
+
+services.forEach(svc => {
+  const capList = svc.capabilities.map(cap => 
+        '<div class="service-list-item" style="cursor:default">' +
+          '<span class="service-name">' + cap + '</span>' +
+          '<span class="service-arrow">→</span>' +
+        '</div>').join('');
+
+  const html = template
+    .replace(/{{heading}}/g, svc.heading)
+    .replace(/{{video}}/g, svc.video)
+    .replace(/{{description}}/g, svc.description)
+    .replace(/{{capabilitiesList}}/g, capList);
+
+  const outPath = path.join(__dirname, 'docs', svc.file);
+  fs.writeFileSync(outPath, html);
+  console.log('Created:', outPath);
+});
