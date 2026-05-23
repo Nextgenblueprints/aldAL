@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const topNav = document.getElementById('topNav');
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.querySelector('.nav-links');
+  const hamburgerMenu = document.getElementById('hamburgerMenu');
 
   // Sticky navbar
   window.addEventListener('scroll', () => {
@@ -12,10 +11,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Mobile Menu Toggle
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    hamburger.classList.toggle('active');
+  // Full Screen Nav Toggle
+  if (hamburgerMenu) {
+    hamburgerMenu.addEventListener('click', () => {
+      document.body.classList.toggle('nav-open');
+    });
+  }
+
+  // Close nav when clicking a link
+  const navLinks = document.querySelectorAll('.nav-overlay-link');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      document.body.classList.remove('nav-open');
+    });
   });
 
   // GSAP + ScrollTrigger + Lenis
