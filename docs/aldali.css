@@ -45,8 +45,8 @@ p { color:var(--text-muted); margin:0; }
 section { padding:120px 0; }
 
 /* ---------- NAVIGATION ---------- */
-.navbar { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(10,10,10,0.85); backdrop-filter:blur(14px); border-bottom:1px solid transparent; transition:background .3s, border-color .3s; }
-.navbar.scrolled { background:rgba(10,10,10,0.98); border-bottom-color:var(--line); }
+.navbar { position:fixed; top:0; left:0; right:0; z-index:1000; background:transparent; border-bottom:1px solid transparent; transition:background .3s, border-color .3s, backdrop-filter .3s; }
+.navbar.scrolled { background:rgba(10,10,10,0.85); backdrop-filter:blur(14px); border-bottom-color:var(--line); }
 .nav-inner { max-width:var(--container); margin:0 auto; padding:22px 32px; display:flex; align-items:center; justify-content:space-between; gap:32px; }
 .nav-logo a { font-family:var(--ff-display); font-size:1.8rem; font-weight:700; color:var(--text-light); display:inline-flex; align-items:center; gap:0.4rem; }
 .nav-logo .logo-arrow { color:var(--gold); }
