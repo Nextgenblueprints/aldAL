@@ -19,6 +19,7 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  z-index: 1;
 }
 
 .hero-bg-video {
@@ -113,57 +114,53 @@ body {
   letter-spacing: 2px;
 }
 
-/* --- SERVICES (HORIZONTAL SCROLL) --- */
+/* --- SERVICES (VERTICAL GRID) --- */
 .services-scrolly {
+  padding: 150px 0;
   background: #111;
   color: #fff;
-  overflow: hidden;
 }
 
-.services-pin-wrap {
-  display: flex;
-  height: 100vh;
-  align-items: center;
+.services-header-reveal {
+  text-align: center;
+  margin-bottom: 60px;
+  opacity: 0;
+  transform: translateY(30px);
 }
 
-.services-header {
-  min-width: 40vw;
-  padding: 0 5vw;
-}
-
-.services-header h2 {
+.services-header-reveal h2 {
   font-size: clamp(40px, 6vw, 72px);
   margin-bottom: 20px;
 }
 
-.services-horizontal-container {
-  display: flex;
-  gap: 40px;
-  padding-right: 5vw;
+.services-grid-reveal {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 }
 
-.h-service-card {
-  width: 400px;
-  flex-shrink: 0;
+.v-service-card {
   background: rgba(255,255,255,0.05);
   border-radius: 12px;
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
 }
 
-.h-service-media {
+.v-service-media {
   height: 250px;
 }
-.h-service-media video {
+.v-service-media video {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.h-service-body {
+.v-service-body {
   padding: 30px;
 }
 
-.h-service-body h3 {
+.v-service-body h3 {
   font-size: 24px;
   margin: 10px 0 20px;
 }

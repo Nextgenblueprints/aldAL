@@ -53,33 +53,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const textBlocks = gsap.utils.toArray('.hero-text-block');
     const videos = gsap.utils.toArray('.hero-bg-video');
 
-    // Create a pinned timeline for the hero section
-    let tlHero = gsap.timeline({
-      scrollTrigger: {
-        trigger: heroSection,
-        start: 'top top',
-        end: `+=${textBlocks.length * 100}%`,
-        pin: true,
-        scrub: true,
-      }
-    });
-
     textBlocks.forEach((block, i) => {
-      const inner = block.querySelector('.hero-text-inner');
-      
-      // Reveal the text block
-      tlHero.to(inner, { opacity: 1, y: 0, duration: 1 }, i * 2);
-
-      // Crossfade the videos
-      if (i > 0) {
-        tlHero.to(videos[i-1], { opacity: 0, duration: 0.5 }, i * 2 - 0.5);
-        tlHero.to(videos[i], { opacity: 1, duration: 0.5 }, i * 2 - 0.5);
-      }
-
-      // Hide the text block (unless it's the last one)
-      if (i !== textBlocks.length - 1) {
-        tlHero.to(inner, { opacity: 0, y: -50, duration: 1 }, i * 2 + 1);
-      }
+      ScrollTrigger.create({
+        trigger: block,
+        start: 'top 50%',
+        end: 'bottom 50%',
+        onEnter: () => {
+          gsap.to(videos, { opacity: 0, duration: 0.5 });
+          gsap.to(videos[i], { opacity: 1, duration: 0.5 });
+          gsap.to(block.querySelector('.hero-text-inner'), { opacity: 1, y: 0, duration: 0.8 });
+        },
+        onEnterBack: () => {
+          gsap.to(videos, { opacity: 0, duration: 0.5 });
+          gsap.to(videos[i], { opacity: 1, duration: 0.5 });
+          gsap.to(block.querySelector('.hero-text-inner'), { opacity: 1, y: 0, duration: 0.8 });
+        },
+        onLeave: () => {
+          gsap.to(block.querySelector('.hero-text-inner'), { opacity: 0, y: -50, duration: 0.8 });
+        },
+        onLeaveBack: () => {
+          gsap.to(block.querySelector('.hero-text-inner'), { opacity: 0, y: 50, duration: 0.8 });
+        }
+      });
     });
   }
 
@@ -113,24 +108,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 3. SERVICES HORIZONTAL SCROLL
+  // 3. SERVICES VERTICAL GRID REVEAL
   const servicesSection = document.querySelector('.services-scrolly');
-  const horizontalContainer = document.querySelector('.services-horizontal-container');
   
-  if (servicesSection && horizontalContainer) {
-    let getScrollAmount = () => -(horizontalContainer.scrollWidth - window.innerWidth + 200);
-
-    gsap.to(horizontalContainer, {
-      x: getScrollAmount,
-      ease: "none",
+  if (servicesSection) {
+    gsap.to('.services-header-reveal', {
+      opacity: 1,
+      y: 0,
+      duration: 1,
       scrollTrigger: {
         trigger: servicesSection,
-        start: "top top",
-        end: () => `+=${getScrollAmount() * -1}`,
-        pin: true,
-        animation: gsap.to(horizontalContainer, { x: getScrollAmount, ease: "none" }),
-        scrub: 1,
-        invalidateOnRefresh: true
+        start: 'top 75%',
+      }
+    });
+
+    gsap.to('.v-service-card', {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      stagger: 0.15,
+      scrollTrigger: {
+        trigger: '.services-grid-reveal',
+        start: 'top 80%',
       }
     });
   }
