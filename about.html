@@ -3,83 +3,530 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Al Dali International – Integrated Energy & Infrastructure</title>
-  <meta name="description" content="Al Dali International (DIC) – Integrated Energy, Construction, Marine, Drilling, Medical & Sustainability solutions across Kuwait and the region." />
+  <title>About Us – Al Dali International (DIC)</title>
+  <meta name="description" content="Learn about Al Dali International (DIC) – Founded in 2003, providing Integrated Energy & Infrastructure solutions across Kuwait." />
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <!-- Swiper CSS (carousel) -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-  <!-- Custom Styles -->
+  <!-- Base Theme -->
   <link rel="stylesheet" href="aldali.css" />
+  <style>
+    /* ===== ABOUT PAGE SPECIFIC STYLES ===== */
+
+    /* --- Page Header / Breadcrumb Bar --- */
+    .page-header {
+      padding: 140px 0 60px;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      text-align: center;
+    }
+    .page-header h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .page-header .breadcrumb {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .page-header .breadcrumb a { color: var(--gold); }
+    .page-header .breadcrumb span { margin: 0 8px; }
+
+    /* --- Intro Section --- */
+    .about-intro {
+      padding: 100px 0;
+      background: var(--bg-dark);
+    }
+    .about-intro .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .about-intro .intro-image img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .about-intro .eyebrow-text {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .about-intro .eyebrow-text::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .about-intro h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+    .about-intro p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 16px;
+    }
+
+    /* --- Vision / Mission / Values Tabs --- */
+    .vmv-section {
+      padding: 100px 0;
+      background: #111;
+    }
+    .vmv-section .section-eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .vmv-section h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      margin-bottom: 48px;
+    }
+
+    .tabs-nav {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid rgba(255,255,255,0.1);
+      margin-bottom: 32px;
+    }
+    .tabs-nav button {
+      flex: 1;
+      padding: 16px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    .tabs-nav button::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    .tabs-nav button.active {
+      color: var(--gold);
+    }
+    .tabs-nav button.active::after {
+      transform: scaleX(1);
+    }
+    .tabs-nav button:hover {
+      color: var(--gold-soft);
+    }
+
+    .tab-panel {
+      display: none;
+      animation: fadeInTab 0.4s ease;
+    }
+    .tab-panel.active { display: block; }
+    @keyframes fadeInTab {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .tab-panel p,
+    .tab-panel li {
+      font-size: 16px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.75);
+    }
+    .tab-panel ul {
+      list-style: none;
+      padding: 0;
+    }
+    .tab-panel ul li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 14px;
+    }
+    .tab-panel ul li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    /* VMV feature image */
+    .vmv-image {
+      margin-top: 48px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .vmv-image img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform 0.6s ease;
+    }
+    .vmv-image:hover img {
+      transform: scale(1.03);
+    }
+
+    /* --- Our People Section --- */
+    .people-section {
+      padding: 100px 0;
+      background: var(--bg-dark);
+    }
+    .people-section .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .people-section h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .people-section .subtitle {
+      font-size: 16px;
+      color: rgba(255,255,255,0.6);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .people-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .people-grid .people-img {
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+    .people-grid .people-img img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      transition: transform 0.6s ease, filter 0.4s ease;
+    }
+    .people-grid .people-img:hover img {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+    .people-grid .people-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.4), transparent 50%);
+      pointer-events: none;
+    }
+
+    /* --- QHSE Section --- */
+    .qhse-section {
+      padding: 100px 0;
+      background: #111;
+    }
+    .qhse-section .section-eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .qhse-section h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    .qhse-section .qhse-text {
+      font-size: 15px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 16px;
+    }
+    .iso-certs {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+    .iso-certs img {
+      height: 200px;
+      border-radius: 8px;
+      background: #fff;
+      padding: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .iso-certs img:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(201,168,76,0.2);
+    }
+
+    /* --- QHSE Commitment Section --- */
+    .qhse-commitment {
+      padding: 100px 0;
+      background: var(--bg-dark);
+    }
+    .qhse-commitment h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 700;
+      margin-bottom: 32px;
+    }
+    .qhse-commitment ul {
+      list-style: none;
+      padding: 0;
+      columns: 1;
+    }
+    .qhse-commitment ul li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 16px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.7);
+    }
+    .qhse-commitment ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .cert-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .cert-gallery img {
+      width: 100%;
+      border-radius: 8px;
+      background: #fff;
+      padding: 6px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .cert-gallery img:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(201,168,76,0.15);
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 900px) {
+      .about-intro .grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .people-grid {
+        grid-template-columns: 1fr;
+      }
+      .people-grid .people-img img {
+        height: 240px;
+      }
+      .vmv-image img {
+        height: 260px;
+      }
+      .iso-certs {
+        gap: 20px;
+      }
+      .iso-certs img {
+        height: 140px;
+      }
+      .tabs-nav button {
+        font-size: 13px;
+        padding: 12px 16px;
+      }
+    }
+
+    /* --- Scroll animations --- */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 <body>
-  <!-- Navbar -->
+
+  <!-- Navbar (same as index.html) -->
   <nav class="navbar" id="topNav">
     <div class="nav-logo"><a href="index.html" class="logo">DIC</a></div>
     <ul class="nav-links">
-      <li><a href="#about-us">About Us</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#partners">Partners</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="about.html">About Us</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About Us</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#partners">Partners</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
     </ul>
     <div class="nav-toggle" id="hamburger"><span></span></div>
   </nav>
 
-  <!-- About Us Content -->
-  <section class="about-us" id="about-us">
-    <!-- Begin Aldali About Us content (copied from https://aldali-int.com/about-us/) -->
-    <!-- The full HTML content has been inserted below. It uses the same structural elements
-         as the original page but inherits the SRMG styling defined in aldali.css. -->
+  <!-- Page Header -->
+  <section class="page-header">
     <div class="container">
-      <h1>Leading Innovation &amp; Growth</h1>
-      <p>Founded in 2003 as a private Company offering Heavy Equipment and Machinery support services to the Industries in Kuwait, DIC has exponentially grown and established itself as one of the most cherished multi diversified contractor across the State of Kuwait.</p>
-      <p>With dedicated and experienced Human assets of 800+ nos. and with Equipment assets exceeding 1000+ nos of Heavy Equipment &amp; Machinery along with Innovative technological partners, we are marching towards achieving our vision of becoming a market leader and preferred partner for Integrated Energy and Infrastructure sectors services provider closer to the heart of our clients.</p>
-
-      <!-- Vision / Mission / Values Toggle -->
-      <div class="tabs">
-        <input type="radio" name="about-tab" id="tab-vision" checked />
-        <label for="tab-vision">Vision</label>
-        <div class="tab-content">
-          <p>Our vision is to be the premier integrated energy and infrastructure partner, delivering sustainable solutions that empower communities.</p>
-        </div>
-        <input type="radio" name="about-tab" id="tab-mission" />
-        <label for="tab-mission">Mission</label>
-        <div class="tab-content">
-          <p>Our mission is to provide world‑class services, innovative technologies, and unparalleled reliability across all business domains.</p>
-        </div>
-        <input type="radio" name="about-tab" id="tab-values" />
-        <label for="tab-values">Values</label>
-        <div class="tab-content">
-          <ul>
-            <li>Integrity</li>
-            <li>Excellence</li>
-            <li>Safety</li>
-            <li>Sustainability</li>
-            <li>Collaboration</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Images Section (example layout) -->
-      <div class="image-grid">
-        <img src="assets/about/vision.jpg" alt="Vision" />
-        <img src="assets/about/mission.jpg" alt="Mission" />
-        <img src="assets/about/values.jpg" alt="Values" />
-      </div>
-
-      <!-- QHSE Certificates -->
-      <h2>QHSE Certifications</h2>
-      <div class="certificates">
-        <img src="assets/about/qhse1.png" alt="QHSE Certificate 1" />
-        <img src="assets/about/qhse2.png" alt="QHSE Certificate 2" />
-        <img src="assets/about/qhse3.png" alt="QHSE Certificate 3" />
+      <h1>About Us</h1>
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span>›</span> About Us
       </div>
     </div>
-    <!-- End Aldali About Us content -->
   </section>
 
-  <!-- Footer (reuse SRMG footer) -->
+  <!-- Intro Section -->
+  <section class="about-intro">
+    <div class="container">
+      <div class="grid">
+        <div class="intro-image fade-up">
+          <img src="https://aldali-int.com/wp-content/uploads/2024/09/g11854-1024x470.png" alt="Al Dali International DIC" loading="lazy" />
+        </div>
+        <div class="intro-text fade-up">
+          <div class="eyebrow-text">Rising to Excellence: DIC's Remarkable Journey</div>
+          <h2>Leading Innovation &amp; Growth</h2>
+          <p>Founded in 2003 as a private Company offering Heavy Equipment and Machinery support services to the Industries in Kuwait, today DIC has exponentially grown and established itself as one of the most cherished multi diversified contractor across the State of Kuwait. DIC's exponential growth since its modest beginning is a reflection of its commitment to customers, who come year after year.</p>
+          <p>DIC with dedicated and experienced Human assets of 800+ nos. and with Equipment assets exceeding 1000+ nos. of Heavy Equipment &amp; Machinery along with Innovative technological partners, is marching towards achieving its vision of becoming a market leader and preferred partner for Integrated Energy and Infrastructure sectors services provider closer to the heart of its clients.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision / Mission / Values -->
+  <section class="vmv-section">
+    <div class="container">
+      <div class="section-eyebrow fade-up">Pioneering Excellence in Energy and Infrastructure</div>
+      <h2 class="fade-up">Innovative &amp; Sustainable Solutions for Growth</h2>
+
+      <div class="tabs-nav" id="vmvTabs">
+        <button class="active" data-tab="vision">Vision</button>
+        <button data-tab="mission">Mission</button>
+        <button data-tab="values">Values</button>
+      </div>
+
+      <div id="panel-vision" class="tab-panel active">
+        <p>To be recognized as a 'Market Leader and preferred Business Partner' in the Energy and Infrastructure segment providing comprehensive, innovative and competitive solutions to optimally enhance client's Operational &amp; Sustainable Excellence.</p>
+      </div>
+
+      <div id="panel-mission" class="tab-panel">
+        <ul>
+          <li>Safely and competitively serve the Clients towards their sustainable growth and for all stakeholders.</li>
+          <li>Increasing the Shareholder value through trustworthy Customer relationship and providing quality, reliable services.</li>
+          <li>Enhancing societal value by offering optimal technological and operational solutions reducing the environmental footprint.</li>
+          <li>Be a 'Model service provider' setting a path in providing unique solutions in the Industry promoting a better way of life for all.</li>
+        </ul>
+      </div>
+
+      <div id="panel-values" class="tab-panel">
+        <ul>
+          <li>We create value through innovation and adaptability to change.</li>
+          <li>We add value acting sustainable in all operational process.</li>
+          <li>We realize value acting ethically and optimized solutions.</li>
+          <li>We distribute value sharing our knowledge and enriching customer experience.</li>
+        </ul>
+      </div>
+
+      <div class="vmv-image fade-up">
+        <img src="https://aldali-int.com/wp-content/uploads/2024/10/ALDALI-DIC-About-1.jpg" alt="DIC Operations" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Our People, Our Strength -->
+  <section class="people-section">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2>Our People, Our Strength</h2>
+        <p class="subtitle">Celebrating the Dedication and Hard Work of Our Team – The Backbone of Our Success Across Sites and Offices.</p>
+      </div>
+      <div class="people-grid">
+        <div class="people-img fade-up">
+          <img src="https://aldali-int.com/wp-content/uploads/2024/10/ALDALI-DIC-ABOUT-1-1.jpg" alt="DIC Team at Work" loading="lazy" />
+        </div>
+        <div class="people-img fade-up">
+          <img src="https://aldali-int.com/wp-content/uploads/2024/10/ALDALI-DIC-ABOUT-2.jpg" alt="DIC Equipment Operations" loading="lazy" />
+        </div>
+        <div class="people-img fade-up">
+          <img src="https://aldali-int.com/wp-content/uploads/2024/10/ALDALI-DIC-ABOUT-4.jpg" alt="DIC Site Operations" loading="lazy" />
+        </div>
+        <div class="people-img fade-up">
+          <img src="https://aldali-int.com/wp-content/uploads/2024/10/ALDALI-DIC-ABOUT-3.jpg" alt="DIC Field Work" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QHSE Section -->
+  <section class="qhse-section">
+    <div class="container">
+      <div class="section-eyebrow fade-up">Striving for Excellence in Management</div>
+      <h2 class="fade-up">Quality, Health, Safety &amp; Environment</h2>
+      <p class="qhse-text fade-up">DIC's commitment to Quality, Health, Safety, and Environmental stewardship are ingrained in its entire operations. It's visible in its core values, the work it performs, and in its people.</p>
+      <p class="qhse-text fade-up">DIC believes that an essential factor in its business growth is the emphasis it places on Quality, Health, Safety, and Environment (QHSE). QHSE is a fundamental element in all its business activities and an integral part of service delivery workflows from all levels of employees and contractors.</p>
+      <p class="qhse-text fade-up">DIC complies with the most stringent of the legal, international, national, customer, and other applicable safety and ecological standards and requirements in all its business operations.</p>
+      <p class="qhse-text fade-up">DIC takes to heart the well-being of its employees. Its Company-wide emphasis on safety, extensive training programs, quality-of-life, and benefits – all these are ways it maintains and develops the one asset that makes every success possible: the DIC team.</p>
+
+      <div class="iso-certs fade-up">
+        <img src="https://aldali-int.com/wp-content/uploads/2024/09/ISO-9001-2015-min.png" alt="ISO 9001:2015" loading="lazy" />
+        <img src="https://aldali-int.com/wp-content/uploads/2024/09/ISO-14001-2015-min.png" alt="ISO 14001:2015" loading="lazy" />
+        <img src="https://aldali-int.com/wp-content/uploads/2024/09/ISO-45001-2018-min.png" alt="ISO 45001:2018" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- QHSE Commitment -->
+  <section class="qhse-commitment">
+    <div class="container">
+      <div class="section-eyebrow fade-up">Striving for Excellence in Quality</div>
+      <h2 class="fade-up">DIC Demonstration to QHSE Commitment</h2>
+      <ul class="fade-up">
+        <li>Setting clear QHSE objectives and measurable, progressive targets as part of our business performance &amp; monitoring performance for continuous improvements.</li>
+        <li>Identifying, managing, and mitigating environmental risks, including the risks associated with climate change.</li>
+        <li>Driving HSE behaviors with a "no defects" mindset, and rewarding outstanding HSE performance and initiatives.</li>
+        <li>Eliminating HSE events and accidents with a strong reporting culture and effective investigation of near-misses.</li>
+        <li>Training its workforce on HSE standards to increase awareness of HSE risks and prevention methods.</li>
+        <li>Effectively communicating with stakeholders its HSE policies, standards, programs and performance.</li>
+        <li>Protecting the health, safety and security of its workforce at all times.</li>
+        <li>Meeting international, national and customer standards &amp; requirements.</li>
+        <li>Protecting the environment through responsible planning and providing solutions aimed at decreasing the environmental impact of its business.</li>
+        <li>Ensuring HSE considerations are factored into the design, engineering, and deployment in its products and services.</li>
+        <li>Maintaining an updated response plan to minimize the effect of any emergency, business disruption, or crisis.</li>
+      </ul>
+
+      <div class="cert-gallery fade-up">
+        <img src="https://aldali-int.com/wp-content/uploads/2024/09/CERT-6.png" alt="QHSE Certificate" loading="lazy" />
+        <img src="https://aldali-int.com/wp-content/uploads/2024/09/CERT-7.png" alt="QHSE Certificate" loading="lazy" />
+        <img src="https://aldali-int.com/wp-content/uploads/2024/09/CERT-8.png" alt="QHSE Certificate" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (same as index.html) -->
   <footer class="footer">
     <div class="container">
       <div class="footer-top">
@@ -91,10 +538,10 @@
           <h3>Navigation</h3>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="#about-us">About Us</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#partners">Partners</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#partners">Partners</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -116,15 +563,56 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2025 Al Dali International. All rights reserved.</span>
+        <span>&copy; 2025 Al Dali International. All rights reserved.</span>
         <div class="legal"><a href="#">Privacy Policy</a> | <a href="#">Terms &amp; Conditions</a></div>
       </div>
     </div>
   </footer>
 
-  <!-- Swiper JS -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <!-- Custom Script -->
-  <script src="aldali.js"></script>
+  <!-- Scripts -->
+  <script>
+    // === Tabs Logic ===
+    const tabButtons = document.querySelectorAll('.tabs-nav button');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabButtons.forEach(b => b.classList.remove('active'));
+        tabPanels.forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    // === Scroll-triggered fade-up animations ===
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // === Navbar scroll effect ===
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('topNav');
+      if (window.scrollY > 60) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // === Mobile hamburger toggle ===
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+      });
+    }
+  </script>
 </body>
 </html>
