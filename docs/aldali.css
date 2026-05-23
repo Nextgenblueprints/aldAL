@@ -135,3 +135,26 @@ section { padding:120px 0; }
 .swiper-pagination-bullet { background:var(--gold); opacity:0.6; }
 .swiper-pagination-bullet-active { opacity:1; }
 .services-grid > .service-card:nth-child(7) { grid-column: 2; }
+/* Dropdown styles */
+.has-dropdown { position: relative; }
+.has-dropdown .dropdown { 
+  display: none; 
+  position: absolute; 
+  top: 100%; 
+  left: 0; 
+  background: var(--bg-dark); 
+  border: 1px solid rgba(255,255,255,0.1); 
+  list-style: none; 
+  padding: 10px 0; 
+  min-width: 250px; 
+  z-index: 1000; 
+}
+.has-dropdown:hover .dropdown { display: block; }
+.has-dropdown .dropdown li a { 
+  padding: 12px 20px; 
+  text-transform: none; 
+  letter-spacing: normal; 
+}
+.has-dropdown .dropdown li a:hover { 
+  background: rgba(255,255,255,0.05); 
+}
