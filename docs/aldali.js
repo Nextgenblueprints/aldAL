@@ -132,8 +132,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. PARTNERS GRID REVEAL
+  // 4. PARTNERS SCROLLING ROWS
   const partnersSection = document.querySelector('.partners-scrolly');
+  
   if (partnersSection) {
     gsap.to('.partners-title-reveal', {
       opacity: 1,
@@ -141,19 +142,40 @@ document.addEventListener('DOMContentLoaded', () => {
       duration: 1,
       scrollTrigger: {
         trigger: partnersSection,
-        start: 'top 70%',
-      }
-    });
-
-    gsap.to('.partner-item-reveal', {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: '.partners-grid-reveal',
         start: 'top 80%',
       }
     });
+
+    const rowLeft = document.querySelector('.row-left');
+    const rowRight = document.querySelector('.row-right');
+
+    if (rowLeft && rowRight) {
+      // Row 1 moves to the left (starts at 0, moves negative)
+      gsap.to(rowLeft, {
+        x: () => - (rowLeft.scrollWidth - window.innerWidth + 100),
+        ease: "none",
+        scrollTrigger: {
+          trigger: partnersSection,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1,
+        }
+      });
+
+      // Row 2 moves to the right (starts negative, moves to 0)
+      gsap.fromTo(rowRight, 
+        { x: () => - (rowRight.scrollWidth - window.innerWidth + 100) },
+        { 
+          x: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: partnersSection,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1,
+          }
+        }
+      );
+    }
   }
 });
