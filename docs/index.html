@@ -262,8 +262,12 @@
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
+  <footer class="footer" style="position: relative; overflow: hidden; background: transparent; color: #fff;">
+    <video class="footer-bg-video" autoplay muted loop playsinline preload="metadata" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; opacity: 0.6;">
+      <source src="assets/hero/hero-1.mp4" type="video/mp4" />
+    </video>
+    <div class="footer-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.4)); z-index: -1;"></div>
+    <div class="container" style="position: relative; z-index: 1;">
       <div class="footer-top">
         <div class="logo-text">⟩⟩ DIC</div>
         <div class="right">Est. 2003 · Kuwait</div>
