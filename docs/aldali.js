@@ -93,19 +93,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // About Stats Parallax
-  gsap.utils.toArray('.stat-box').forEach(box => {
-    const speed = box.getAttribute('data-speed');
-    gsap.to(box, {
-      y: (i, target) => -ScrollTrigger.maxScroll(window) * (speed - 1),
-      ease: "none",
-      scrollTrigger: {
-        trigger: box,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 0,
-      }
-    });
+  // About Stats smooth fade up (instead of parallax)
+  gsap.from('.stat-box', {
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.2,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: '.about-stats',
+      start: 'top 85%',
+    }
   });
 
   // 3. SERVICES VERTICAL GRID REVEAL
