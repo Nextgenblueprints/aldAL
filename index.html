@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Al Dali – Home</title>
+  <img src="assets/partners/KNPC.PNG" alt="KNPC" onerror="this.style.display='none'" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="logo">Al Dali</div>
+    <nav class="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="#services">Our Services</a>
+      <a href="#partners">Partners</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop>
+      <source src="assets/hero/hero-slide-01.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-overlay">
+      <h1>Leading Oil Solutions</h1>
+      <p>Powering the future with innovation and sustainability.</p>
+      <a href="#services" class="cta-button">Explore Services</a>
+    </div>
+  </section>
+
+  <!-- Our Services (styled like Latest News) -->
+  <section id="services" class="services-section">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <!-- Example Card – repeat for each service video -->
+      <div class="service-card">
+        <video muted loop>
+          <source src="assets/services/service1.mp4" type="video/mp4" />
+        </video>
+        <h3>Exploration & Production</h3>
+      </div>
+      <div class="service-card">
+        <video muted loop>
+          <source src="assets/services/service2.mp4" type="video/mp4" />
+        </video>
+        <h3>Refining & Distribution</h3>
+      </div>
+      <!-- Add more cards as needed -->
+    </div>
+  </section>
+
+  <!-- Partners Section -->
+  <section id="partners" class="partners-section">
+    <h2>Our Partners</h2>
+    <div class="partners-carousel">
+      <img src="assets/partners/kharafinational.png" alt="Kharafi National" onerror="this.style.display='none'" />
+      <img src="assets/partners/partner2.png" alt="Partner 2" />
+      <img src="assets/partners/partner3.png" alt="Partner 3" />
+      <!-- Add more partner logos -->
+    </div>
+  </section>
+
+  <!-- Contact & Map -->
+  <section id="contact" class="contact-section">
+    <h2>Contact Us</h2>
+    <form class="contact-form" onsubmit="return false;">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=Al+Dali+Company+Location"
+        width="100%"
+        height="300"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+      ></iframe>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2026 Al Dali. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
